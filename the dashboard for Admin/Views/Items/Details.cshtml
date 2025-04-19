@@ -1,0 +1,133 @@
+﻿@using System.Net;
+@model AQTTan.Models.Item
+
+@{
+    ViewData["Title"] = "Details";
+
+    var whatsappMessage = $"I would like to request the following product:\n\nProduct Name: {Model.Name}\nProduct Number: {Model.Id}\nDescription: {Model.Description}\nPrice: {Model.Price}";
+    var encodedMessage = WebUtility.UrlEncode(whatsappMessage);
+}
+
+<div class="item-details-container">
+    <div class="item-card">
+        <div class="item-image">
+            @if (Model.Image != null)
+            {
+                <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Image)" alt="Item Image" />
+            }
+        </div>
+        <div class="item-info">
+            <h2>@Model.Name</h2>
+            <p><strong>Product Number:</strong> @Model.Id</p>
+            <p><strong>Component ID:</strong> @Model.CompoId</p>
+            <p><strong>Description:</strong> @Model.Description</p>
+            <p><strong>Price:</strong> @Model.Price</p>
+        </div>
+    </div>
+    <a href="https://wa.me/967770055303?text=@encodedMessage" class="btn btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Request Product on WhatsApp
+    </a>
+</div>
+
+<style>
+    /* Modern page design with colors and shadows */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .item-details-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        position: relative; /* For positioning the button */
+    }
+
+    .item-card {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 500px; /* Reduced width */
+        background: linear-gradient(135deg, #6cd98e, #48c6ef);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+        .item-card:hover {
+            transform: scale(1.02);
+        }
+
+    .item-image {
+        flex: 1;
+        max-width: 50%;
+        overflow: hidden;
+        border-right: 5px solid rgba(255, 255, 255, 0.1);
+    }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 0 0 15px;
+        }
+
+    .item-info {
+        flex: 1;
+        padding: 20px;
+        color: white;
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Distribute space evenly */
+    }
+
+        .item-info h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .item-info p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        position: absolute; /* Make it absolute */
+        bottom: -60px; /* Move it below the card */
+    }
+
+    .btn-whatsapp {
+        background-color: #25D366;
+    }
+
+        .btn-whatsapp:hover {
+            background-color: #1DA955;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+    .fab {
+        margin-right: 8px;
+    }
+
+    /* Added gradient text effect */
+    .item-info p strong {
+        color: #fff;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+</style>
