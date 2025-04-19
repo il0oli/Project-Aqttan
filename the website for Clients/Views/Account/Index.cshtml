@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Account";
+}
+
+<div class="account-page">
+    <h2>Hello, Admin</h2>
+
+    <div class="account-info">
+        <p>Welcome to your account settings page. You can manage your username and password here.</p>
+    </div>
+
+    <div class="account-actions">
+        <form asp-controller="Account" asp-action="Edit" method="post">
+            <button type="submit" class="btn btn-primary">Change Username/Password</button>
+        </form>
+    </div>
+
+    <!-- Logout Section -->
+    <div class="logout-container">
+        <form asp-controller="Account" asp-action="Logout" method="post" class="logout-card">
+           @*  <img src="~/images/Admin.jpg" alt="Profile Picture" class="profile-pic"> *@
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f8fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .account-page {
+        max-width: 400px;
+        margin: 100px auto;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .account-info {
+        margin-bottom: 30px;
+    }
+
+        .account-info p {
+            font-size: 16px;
+            color: #666;
+        }
+
+    .btn-primary {
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 25px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 30px;
+    }
+
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+
+    .logout-container {
+        margin-top: 20px;
+    }
+
+    .logout-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+        .logout-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+    .logout-button {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .logout-button:hover {
+            background-color: #c82333;
+        }
+</style>

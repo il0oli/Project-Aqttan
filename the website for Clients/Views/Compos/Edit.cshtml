@@ -1,0 +1,168 @@
+﻿@model ClientAqttan.Models.Compo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit Component</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                
+                <div class="form-group">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Image" class="form-label">Upload Image</label>
+                    <input asp-for="Image" type="file" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4 text-center">
+    <a asp-action="Index" class="btn btn-secondary">Back to Components</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+    /* General styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #007bff;
+        text-align: center;
+    }
+
+    /* Form styles */
+    .form-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    input.form-control {
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    }
+
+    input.form-control-file {
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 6px 12px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #4e555b;
+        }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 0.875rem;
+    }
+
+    .mt-4 {
+        margin-top: 1.5rem;
+    }
+
+    .mb-3 {
+        margin-bottom: 1.5rem;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

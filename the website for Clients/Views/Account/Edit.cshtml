@@ -1,0 +1,84 @@
+﻿@model ClientAqttan.Models.EditAccountViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>EditAccountViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentPassword" class="control-label"></label>
+                <input asp-for="CurrentPassword" class="form-control" />
+                <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewPassword" class="control-label"></label>
+                <input asp-for="NewPassword" class="form-control" />
+                <span asp-validation-for="NewPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmNewPassword" class="control-label"></label>
+                <input asp-for="ConfirmNewPassword" class="form-control" />
+                <span asp-validation-for="ConfirmNewPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@* @model EditUserViewModel
+
+<h2>Edit User</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CurrentPassword"></label>
+        <input asp-for="CurrentPassword" class="form-control" type="password" />
+        <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewPassword"></label>
+        <input asp-for="NewPassword" class="form-control" type="password" />
+        <span asp-validation-for="NewPassword" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConfirmNewPassword"></label>
+        <input asp-for="ConfirmNewPassword" class="form-control" type="password" />
+        <span asp-validation-for="ConfirmNewPassword" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+ *@
+
